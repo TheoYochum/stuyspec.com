@@ -8,6 +8,7 @@ import { Hamburger, Search } from "../icons";
 import { openSidebar } from "../actions";
 import MobileNavButton from "./MobileNavButton";
 import { FeaturedSectionsBar } from "../../sections/components";
+import DarkModeToggle from "./DarkModeToggle";
 
 import { openSubscriptionModal } from "../../accounts/actions";
 
@@ -41,6 +42,11 @@ const styles = {
       position: "relative",
       left: "-10px",
     },
+  },
+  DarkModeToggle: {
+    position: "relative",
+    right: "75px",
+    bottom: "-25px",
   },
   brandingLink: {
     bottom: "5px",
@@ -99,7 +105,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
   },
-  "@media (max-width: 1100px)": {
+  "@media (max-width: 1300px)": {
     MastheadBar: {
       height: "52px",
       flexDirection: "row"
@@ -110,11 +116,17 @@ const styles = {
     navButtons: {
       display: "none",
     },
+    // DarkModeToggle: {
+    //   display: "block",
+    //   marginBottom: '27px',
+    //   position: 'absolute',
+    //   left: '-35vw'
+    // },
   },
   "@media (max-width: 375px)": {
     brandingLink: {
       lineHeight: "2rem",
-    },
+    }
   },
 };
 
@@ -142,12 +154,16 @@ const MastheadBar = ({
             ) : (
               <Link to="/myaccount">Log In</Link>
             )*/}
-            <span
+            <div className={classes.DarkModeToggle}>
+              <DarkModeToggle />
+            </div>
+<a href="https://stuyspec.us4.list-manage.com/subscribe?u=d92e8c831515555b06ae9eeea&id=78d0a29c4f">            
+<span
               className={classes.subscriber}
-              onClick={openSubscriptionModal}
             >
               Subscribe
             </span>
+</a>
           </div>
           <Link to="/search" className={classes.searchLink}>
             <Search color={"#000"} />
